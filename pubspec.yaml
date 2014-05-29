@@ -2,5 +2,6 @@ name: tekartik_midi_js
 description: MIDI.js wrapper for dartium/chromium
 dependencies:
   browser: any
+dev_dependencies:
   tekartik_common:
     path: ../../hg/dart-pkg/common
