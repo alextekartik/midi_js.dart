@@ -3,16 +3,12 @@ part of midi_js;
 class MidiJs {
 
   JsObject _jsObject;
-  String soundfontUrl;
-  MidiJs([this.soundfontUrl]) {
+  String _soundfontUrl;
+  MidiJs([this._soundfontUrl]) {
     _jsObject = context['MIDI'];
   }
-  List<String> instruments;
+  // List<String> instruments;
 
-  JsFunction get loadPlugin {
-    return _jsObject['loadPlugin'];
-  }
-  
   bool get loaded {
     return _jsObject != null;
   }
@@ -35,7 +31,10 @@ class MidiJs {
     //return new Future.value();
     JsObject args = new JsObject.jsify({});
     if (soundfontUrl == null) {
-      soundfontUrl = this.soundfontUrl;
+      soundfontUrl = this._soundfontUrl;
+    }
+    if (!soundfontUrl.endsWith('/')) {
+      soundfontUrl += '/';
     }
     args['soundfontUrl'] = soundfontUrl;
     args['api'] = 'webaudio';

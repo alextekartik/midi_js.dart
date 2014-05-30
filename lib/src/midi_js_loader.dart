@@ -37,7 +37,7 @@ class MidiJsLoader {
       futures.add(_loadJavascriptScript(posix.join(rootUrl, 'js', jsFile)));
     }
     return Future.wait(futures).then((_) {
-      return new MidiJs(posix.join(rootUrl, 'soundfont'));
+      return new MidiJs(posix.join(rootUrl, 'soundfont', '')); // Midi js expect a trailing /
     });
   }
 
