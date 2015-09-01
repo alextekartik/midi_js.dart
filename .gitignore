@@ -21,4 +21,4 @@ out.precompiled.js
 pubspec.lock
 
 # tmp
-tmp
+tmp.packages
